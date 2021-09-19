@@ -19,7 +19,7 @@ class EasyAuthWebAppStack : Stack
     var azureAppRegistrationName = config.Require("azureAppRegistrationName");
 
     // TODO: Derive rg name from siteName?
-    var rg = new ResourceGroup("RG-EasyAuthWebApp-Test");
+    var rg = new ResourceGroup("RG-EasyAuthWebApp-Test", new ResourceGroupArgs { Location = "eastus" });
 
     var storageAccount = new StorageAccount("storageaccount", new StorageAccountArgs
     {
