@@ -7,7 +7,3 @@ After that deploy:
 ```shell
 pulumi up
 ```
-
-## Notes
-
-Deployment of the web app is fine, but the app-registration/app auth isn't 100% working (you will have to go clickops in the Azure portal).
