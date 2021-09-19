@@ -78,7 +78,6 @@ class EasyAuthWebAppStack : Stack
 
     this.Endpoint = app.DefaultHostName;
 
-    // Create an Azure AD application
     var adApp = new Application("ADAppRegistration", new ApplicationArgs
     {
       DisplayName = azureAppRegistrationName,
@@ -92,7 +91,6 @@ class EasyAuthWebAppStack : Stack
         },
         RedirectUris = new System.Collections.Generic.List<string> { $"https://{siteName}.azurewebsites.net/.auth/login/aad/callback" }
       }
-      // TODO: API - ApplicationAPIArgs, may need delegated User.Read?
     }
     );
 
