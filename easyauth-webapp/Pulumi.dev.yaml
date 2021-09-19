@@ -1,0 +1,7 @@
+config:
+  azure-native:subscriptionId: UPDATE_ME
+  azure-native:tenantId: UPDATE_ME
+  easyauth-webapp:tenantId: UPDATE_ME
+  easyauth-webapp:ownerId: UPDATE_ME
+  easyauth-webapp:siteName: UPDATE_ME
+  easyauth-webapp:azureAppRegistrationName: UPDATE_ME

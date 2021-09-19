@@ -1,0 +1,3 @@
+name: easyauth-webapp
+runtime: dotnet
+description: Azure webapp secured with easy auth (Azure AD)
