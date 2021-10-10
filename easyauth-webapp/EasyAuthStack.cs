@@ -18,8 +18,7 @@ class EasyAuthWebAppStack : Stack
     var siteName = config.Require("siteName");
     var azureAppRegistrationName = config.Require("azureAppRegistrationName");
 
-    // TODO: Derive rg name from siteName?
-    var rg = new ResourceGroup("RG-EasyAuthWebApp-Test", new ResourceGroupArgs { Location = "eastus" });
+    var rg = new ResourceGroup($"RG-{siteName}", new ResourceGroupArgs { Location = "eastus" });
 
     var storageAccount = new StorageAccount("storageaccount", new StorageAccountArgs
     {
@@ -124,6 +123,7 @@ class EasyAuthWebAppStack : Stack
     });
   }
 
+  // From https://github.com/pulumi/examples/blob/master/azure-cs-functions/FunctionsStack.cs
   private static Output<string> SignedBlobReadUrl(Blob blob, BlobContainer container, StorageAccount account, ResourceGroup resourceGroup)
   {
     return Output.Tuple<string, string, string, string>(
