@@ -16,7 +16,7 @@ class EasyAuthWebAppStack : Stack
     var tenantId = config.Require("tenantId");
     var ownerId = config.Require("ownerId");
     var siteName = config.Require("siteName");
-    var azureAppRegistrationName = config.Require("azureAppRegistrationName");
+    var appRegistrationName = config.Require("appRegistrationName");
 
     var rg = new ResourceGroup($"RG-{siteName}");
 
@@ -79,7 +79,7 @@ class EasyAuthWebAppStack : Stack
 
     var adApp = new Application("ADAppRegistration", new ApplicationArgs
     {
-      DisplayName = azureAppRegistrationName,
+      DisplayName = appRegistrationName,
       SignInAudience = "AzureADMyOrg",
       Owners = new[] { ownerId },
       Web = new ApplicationWebArgs
