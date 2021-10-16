@@ -1,4 +1,5 @@
 config:
+  azure-native:location: UPDATE_ME
   azure-native:subscriptionId: UPDATE_ME
   azure-native:tenantId: UPDATE_ME
   easyauth-webapp:tenantId: UPDATE_ME

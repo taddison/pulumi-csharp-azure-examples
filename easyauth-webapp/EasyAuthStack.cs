@@ -18,7 +18,7 @@ class EasyAuthWebAppStack : Stack
     var siteName = config.Require("siteName");
     var azureAppRegistrationName = config.Require("azureAppRegistrationName");
 
-    var rg = new ResourceGroup($"RG-{siteName}", new ResourceGroupArgs { Location = "eastus" });
+    var rg = new ResourceGroup($"RG-{siteName}");
 
     var storageAccount = new StorageAccount("storageaccount", new StorageAccountArgs
     {
@@ -93,11 +93,6 @@ class EasyAuthWebAppStack : Stack
     }
     );
 
-    // ClientId
-    this.ApplicationId = adApp.ApplicationId;
-    this.ApplicationObjectId = adApp.Id;
-
-    // ClientSecret
     var applicationPassword = new ApplicationPassword("appPassword", new ApplicationPasswordArgs
     {
       ApplicationObjectId = adApp.Id,
@@ -149,7 +144,6 @@ class EasyAuthWebAppStack : Stack
       return Output.Format($"https://{accountName}.blob.core.windows.net/{containerName}/{blobName}?{blobSAS.Result.ServiceSasToken}");
     });
   }
+  
   [Output] public Output<string> Endpoint { get; set; }
-  [Output] public Output<string> ApplicationObjectId { get; set; }
-  [Output] public Output<string> ApplicationId { get; set; }
 }
